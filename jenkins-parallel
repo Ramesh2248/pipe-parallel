@@ -1,42 +1,42 @@
 pipeline {
   agent none
   stages {
-    stage ('build') {
+    stage ('build1') {
     agent any
        steps {
           sh '''
-                  echo "this is build stage"
+                  echo "this is build1 stage"
                   sleep 2
              '''
              }
     }
-    stage ('deploy') { 
+    stage ('deploy1') { 
     parallel {
-    stage ('deploy1') {
-    agent { label 'slave-02' }
+    stage ('deploy2') {
+    agent { label 'slave-R2' }
        steps {
           sh '''
-                  echo "this is deploy stage"
+                  echo "this is deploy1 stage"
                   sleep 2
              '''
              }
     }
-      stage ('deploy2') {
-    agent { label 'slave-02' }
+      stage ('deploy3') {
+    agent { label 'slave-R2' }
        steps {
           sh '''
-                  echo "this is deploy stage"
+                  echo "this is deploy1 stage"
                   sleep 2
              '''
              }
     }
     }
     }
-    stage ('test') {
+    stage ('test1') {
     agent any
        steps {
           sh '''
-                  echo "this is test stage"
+                  echo "this is test1 stage"
                   sleep 2
              '''
              }
